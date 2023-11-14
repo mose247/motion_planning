@@ -363,7 +363,7 @@ double VelocityProfileGenerator::calc_distance(const double& v_i,
     // acceleration/deceleration "a". HINT look at the description of this
     // function. Make sure you handle div by 0
     if (a != 0) {
-      d = (v_f^2 - v_i^2)/(2*a);  // <- Updated
+      d = (pow(v_f, 2) - pow(v_i, 2))/(2*a);  // <- Updated
     }
   }
   return d;
@@ -387,7 +387,7 @@ double VelocityProfileGenerator::calc_final_speed(const double& v_i,
   // and make v_f = 0 in that case. If the discriminant is inf or nan return
   // infinity
 
-  double disc = v_i^2 + 2*a*d;  // <- Updated
+  double disc = pow(v_i, 2) + 2*a*d;  // <- Updated
   if (disc <= 0.0) {
     v_f = 0.0;
   } else if (disc == std::numeric_limits<double>::infinity() ||
